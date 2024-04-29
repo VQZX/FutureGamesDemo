@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n4lom")
 }],
-"loop": false,
+"loop": true,
 "name": &"fall_down",
 "speed": 12.0
 }, {
@@ -191,8 +191,6 @@ disable_mode = 2
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_1yic4")
-jump_velocity = -300.0
-max_jump_velocity = -400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fumiko"]
 shape = SubResource("RectangleShape2D_wa4va")
@@ -200,6 +198,6 @@ debug_color = Color(0.521569, 0.00392157, 0.992157, 1)
 
 [node name="Fumiko_Animation" type="AnimatedSprite2D" parent="Fumiko"]
 sprite_frames = SubResource("SpriteFrames_0e30h")
-animation = &"walk"
+animation = &"fall_down"
 speed_scale = 0.75
 script = ExtResource("6_850lf")
