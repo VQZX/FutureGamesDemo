@@ -73,10 +73,10 @@ func handle_jump():
 		match current_jumps:
 			0: 
 				velocity.y = velocity.y + jump_velocity
-				print("Velocity: "+str(velocity))
+				#print("Velocity: "+str(velocity))
 			1: 
 				velocity.y = velocity.y + second_jump_velocity
-				print("Velocity: "+str(velocity))
+				#print("Velocity: "+str(velocity))
 		animation_controller.play_animation(animation_controller.JUMP, sprite_direction)
 		current_jumps = current_jumps + 1
 		limit_jump_velocity()
