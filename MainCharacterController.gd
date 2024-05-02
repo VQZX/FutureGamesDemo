@@ -32,6 +32,9 @@ var direction: Vector2
 
 var input_tracker = []
 
+func GetPosition() -> Vector2:
+	return position;
+
 # Initialisation
 func _init():
 	var _myself = get_node(".")

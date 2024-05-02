@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://3b5njbkpehvf"]
+[gd_scene load_steps=27 format=3 uid="uid://3b5njbkpehvf"]
 
 [ext_resource type="TileSet" uid="uid://cogc6onia3ape" path="res://TileMaps/terrain.tres" id="1_ihl2v"]
 [ext_resource type="Script" path="res://MainCharacterController.gd" id="2_1yic4"]
+[ext_resource type="Script" path="res://Scripts/FollowCamera.gd" id="2_47g6k"]
 [ext_resource type="Texture2D" uid="uid://ciffpthno72yp" path="res://Sprites/Characters/Fumiko/Fumiko_walk_idle.png" id="2_f0qy0"]
 [ext_resource type="Texture2D" uid="uid://bhe717lx3b7ye" path="res://Sprites/Characters/Fumiko/Fumiko_jump.png" id="2_fdxeu"]
 [ext_resource type="Texture2D" uid="uid://b85c0rsry6efq" path="res://Sprites/Characters/Fumiko/Fumiko_interact.png" id="4_cwuhq"]
@@ -181,9 +182,12 @@ light_mask = 3
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 16, 0, 15, 241, 289, 241, 288, 207, 432, 208, 431, 128, 772, 128, 769, -17, 898, -15, 895, 384, 0, 383, 0, 399, -129, 400, -129, 15, 0, 16)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("main_character")]
 position = Vector2(108, 586)
 zoom = Vector2(3.5, 3.5)
+script = ExtResource("2_47g6k")
+main_character = NodePath("../Fumiko")
+delay_bounds = Vector2(100, 100)
 
 [node name="Fumiko" type="CharacterBody2D" parent="."]
 position = Vector2(56, 447)
