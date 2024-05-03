@@ -12,9 +12,6 @@ enum CameraState {STATIC, WAITING, FOLLOWING}
 var target_position : Vector2
 var state : CameraState = CameraState.STATIC
 var current_move_weight : float = 0
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,11 +46,11 @@ func following_process(delta):
 	var direction = (target_position - position).normalized()
 	var next_position = position + direction * current_move_weight
 	position = next_position
-	print(next_position)
 	var difference = (position - target_position).length()
 	if difference <= close_enough_distance:
 		current_move_weight = 0
+		# TODO: Manage this based on player speed, allow for a slower lerp
+		# to player position
 		state = CameraState.STATIC
 		position = target_position
-		print("Return to Static")
 	pass

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c07qa8wh4pwc"]
+
+[ext_resource type="SpriteFrames" uid="uid://gcy4qw8pqj0p" path="res://SpriteFrames/door_animation.tres" id="1_n8ek1"]
+[ext_resource type="Texture2D" uid="uid://ct4ot74aq7b3h" path="res://Sprites/Animateds/Doors/Door4_backing.png" id="2_2bhn3"]
+
+[node name="ExitDoor" type="AnimatedSprite2D"]
+z_index = -1
+position = Vector2(746, 430)
+scale = Vector2(3, 6)
+sprite_frames = ExtResource("1_n8ek1")
+animation = &"closed"
+
+[node name="DoorBacking" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0.333333, 7.66667)
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_2bhn3")

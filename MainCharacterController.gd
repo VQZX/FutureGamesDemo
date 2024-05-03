@@ -2,7 +2,7 @@ class_name MainCharacterController
 extends CharacterBody2D
 ###############################################################################
 @export var max_jumps = 2
-@export var animation_controller : AnimatedSpriteWrapper
+@export var animation_controller : MainCharacterSpriteAnimator
 @export var jump_velocity = -400.0
 @export var second_jump_velocity = -100.0
 @export var max_jump_velocity = -600
@@ -40,7 +40,7 @@ func _init():
 	var _myself = get_node(".")
 	
 func _ready():
-	animation_controller = get_node("Fumiko_Animation") as AnimatedSpriteWrapper
+	animation_controller = get_node("Fumiko_Animation") as MainCharacterSpriteAnimator
 	previous_position = position
 	
 # Input controls
@@ -73,10 +73,8 @@ func handle_jump():
 		match current_jumps:
 			0: 
 				velocity.y = velocity.y + jump_velocity
-				#print("Velocity: "+str(velocity))
 			1: 
 				velocity.y = velocity.y + second_jump_velocity
-				#print("Velocity: "+str(velocity))
 		animation_controller.play_animation(animation_controller.JUMP, sprite_direction)
 		current_jumps = current_jumps + 1
 		limit_jump_velocity()
@@ -117,11 +115,18 @@ func handle_move_right():
 	animation_controller.play_animation(animation_controller.RUN, int(sprite_direction))
 	pass
 	
-
 func _process(delta):
 	position_delta = position - previous_position
 	simple_velocity = position_delta / delta
 	previous_position = position
+	
+	# Force sprite direction
+	if State.MOVE_RIGHT in input_tracker and velocity.x > 0:
+		# Face right
+		animation_controller.play_animation(animation_controller.RUN, 1)
+	elif State.MOVE_LEFT in input_tracker and velocity.x < 0:
+		# Face left
+		animation_controller.play_animation(animation_controller.RUN, -1)
 	
 	match current_state:
 		State.IDLE:
@@ -142,7 +147,6 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	elif is_on_floor():
 		current_jumps = 0
-		print("Velocity: "+str(velocity))
 
 	# Handle Falling
 	if velocity.y < 0:
@@ -150,7 +154,6 @@ func _physics_process(delta):
 		direction.y = 1
 
 	move_and_slide()
-	#print("Falling Speed: "+str(velocity.y))
 	
 func add_input_state(state: State):
 	remove_input_state(state) 
