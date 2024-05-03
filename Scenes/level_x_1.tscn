@@ -1,200 +1,20 @@
-[gd_scene load_steps=30 format=3 uid="uid://3b5njbkpehvf"]
+[gd_scene load_steps=7 format=3 uid="uid://3b5njbkpehvf"]
 
 [ext_resource type="TileSet" uid="uid://cogc6onia3ape" path="res://TileMaps/terrain.tres" id="1_ihl2v"]
 [ext_resource type="PackedScene" uid="uid://cki0bap0kxtm2" path="res://level_1.tscn" id="1_p3i4r"]
-[ext_resource type="Script" path="res://MainCharacterController.gd" id="2_1yic4"]
-[ext_resource type="Script" path="res://Scripts/FollowCamera.gd" id="2_47g6k"]
-[ext_resource type="Texture2D" uid="uid://ciffpthno72yp" path="res://Sprites/Characters/Fumiko/Fumiko_walk_idle.png" id="2_f0qy0"]
-[ext_resource type="Texture2D" uid="uid://bhe717lx3b7ye" path="res://Sprites/Characters/Fumiko/Fumiko_jump.png" id="2_fdxeu"]
-[ext_resource type="Texture2D" uid="uid://b85c0rsry6efq" path="res://Sprites/Characters/Fumiko/Fumiko_interact.png" id="4_cwuhq"]
-[ext_resource type="Script" path="res://Scripts/MainCharacterSpriteAnimator.gd" id="6_850lf"]
+[ext_resource type="PackedScene" uid="uid://dmk4jkq8v7ead" path="res://Prefabs/camera_2d.tscn" id="2_745in"]
+[ext_resource type="PackedScene" uid="uid://d0t51xdq2ubtv" path="res://Prefabs/fumiko.tscn" id="3_pas7j"]
 [ext_resource type="Texture2D" uid="uid://st6ie5l38wob" path="res://Sprites/Backgrounds/wizardtower.png" id="8_pfxe6"]
 [ext_resource type="PackedScene" uid="uid://g0i3y52pul6e" path="res://exit_door_controller.tscn" id="10_kjuym"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa4va"]
-size = Vector2(16, 27)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s15lf"]
-atlas = ExtResource("2_fdxeu")
-region = Rect2(46, 0, 23, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1c7eq"]
-atlas = ExtResource("2_fdxeu")
-region = Rect2(69, 0, 23, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n4lom"]
-atlas = ExtResource("2_fdxeu")
-region = Rect2(92, 0, 23, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvc2q"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(0, 0, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8k3e"]
-atlas = ExtResource("4_cwuhq")
-region = Rect2(0, 0, 24, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s54lj"]
-atlas = ExtResource("4_cwuhq")
-region = Rect2(24, 0, 24, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do5pd"]
-atlas = ExtResource("4_cwuhq")
-region = Rect2(48, 0, 24, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5av7t"]
-atlas = ExtResource("4_cwuhq")
-region = Rect2(72, 0, 24, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqsys"]
-atlas = ExtResource("4_cwuhq")
-region = Rect2(96, 0, 24, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omsjk"]
-atlas = ExtResource("2_fdxeu")
-region = Rect2(0, 0, 23, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2j3e"]
-atlas = ExtResource("2_fdxeu")
-region = Rect2(23, 0, 23, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wjl7q"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(71, 0, 23, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_noxfn"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(94, 0, 23, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2unk"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(117, 0, 23, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2wvyv"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(2, 0, 23, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lp6fu"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(25, 0, 23, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5io8i"]
-atlas = ExtResource("2_f0qy0")
-region = Rect2(48, 0, 23, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0e30h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s15lf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1c7eq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n4lom")
-}],
-"loop": false,
-"name": &"fall_down",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gvc2q")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p8k3e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s54lj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do5pd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5av7t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uqsys")
-}],
-"loop": false,
-"name": &"interact",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omsjk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e2j3e")
-}],
-"loop": false,
-"name": &"jump_up",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjl7q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_noxfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2unk")
-}],
-"loop": true,
-"name": &"run",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2wvyv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lp6fu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5io8i")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 12.0
-}]
 
 [node name="Level_x1" type="Node2D"]
 
 [node name="Level_1" parent="." instance=ExtResource("1_p3i4r")]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("main_character")]
-position = Vector2(108, 586)
-zoom = Vector2(3.5, 3.5)
-script = ExtResource("2_47g6k")
+[node name="Camera2D" parent="." node_paths=PackedStringArray("main_character") instance=ExtResource("2_745in")]
 main_character = NodePath("../Fumiko")
-delay_bounds = Vector2(50, 50)
 
-[node name="Fumiko" type="CharacterBody2D" parent="."]
-position = Vector2(56, 447)
-disable_mode = 2
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_1yic4")
-jump_velocity = -300.0
-max_jump_velocity = -400
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fumiko"]
-shape = SubResource("RectangleShape2D_wa4va")
-debug_color = Color(0.521569, 0.00392157, 0.992157, 1)
-
-[node name="Fumiko_Animation" type="AnimatedSprite2D" parent="Fumiko"]
-sprite_frames = SubResource("SpriteFrames_0e30h")
-animation = &"walk"
-speed_scale = 0.75
-script = ExtResource("6_850lf")
+[node name="Fumiko" parent="." instance=ExtResource("3_pas7j")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmk4jkq8v7ead"]
+
+[ext_resource type="Script" path="res://Scripts/FollowCamera.gd" id="1_ld506"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(108, 586)
+zoom = Vector2(3.5, 3.5)
+script = ExtResource("1_ld506")
+delay_bounds = Vector2(50, 50)

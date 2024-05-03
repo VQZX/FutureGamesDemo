@@ -1,0 +1,182 @@
+[gd_scene load_steps=25 format=3 uid="uid://d0t51xdq2ubtv"]
+
+[ext_resource type="Script" path="res://MainCharacterController.gd" id="1_cu8rc"]
+[ext_resource type="Texture2D" uid="uid://bhe717lx3b7ye" path="res://Sprites/Characters/Fumiko/Fumiko_jump.png" id="2_u78qh"]
+[ext_resource type="Texture2D" uid="uid://ciffpthno72yp" path="res://Sprites/Characters/Fumiko/Fumiko_walk_idle.png" id="3_o3lr8"]
+[ext_resource type="Texture2D" uid="uid://b85c0rsry6efq" path="res://Sprites/Characters/Fumiko/Fumiko_interact.png" id="4_y6irn"]
+[ext_resource type="Script" path="res://Scripts/MainCharacterSpriteAnimator.gd" id="5_vl6iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa4va"]
+size = Vector2(16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s15lf"]
+atlas = ExtResource("2_u78qh")
+region = Rect2(46, 0, 23, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c7eq"]
+atlas = ExtResource("2_u78qh")
+region = Rect2(69, 0, 23, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4lom"]
+atlas = ExtResource("2_u78qh")
+region = Rect2(92, 0, 23, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvc2q"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8k3e"]
+atlas = ExtResource("4_y6irn")
+region = Rect2(0, 0, 24, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s54lj"]
+atlas = ExtResource("4_y6irn")
+region = Rect2(24, 0, 24, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do5pd"]
+atlas = ExtResource("4_y6irn")
+region = Rect2(48, 0, 24, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5av7t"]
+atlas = ExtResource("4_y6irn")
+region = Rect2(72, 0, 24, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqsys"]
+atlas = ExtResource("4_y6irn")
+region = Rect2(96, 0, 24, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omsjk"]
+atlas = ExtResource("2_u78qh")
+region = Rect2(0, 0, 23, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2j3e"]
+atlas = ExtResource("2_u78qh")
+region = Rect2(23, 0, 23, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjl7q"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(71, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noxfn"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(94, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2unk"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(117, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wvyv"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(2, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp6fu"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(25, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5io8i"]
+atlas = ExtResource("3_o3lr8")
+region = Rect2(48, 0, 23, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e30h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s15lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c7eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4lom")
+}],
+"loop": false,
+"name": &"fall_down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvc2q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8k3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s54lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do5pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5av7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqsys")
+}],
+"loop": false,
+"name": &"interact",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omsjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2j3e")
+}],
+"loop": false,
+"name": &"jump_up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjl7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noxfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2unk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wvyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp6fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5io8i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[node name="Fumiko" type="CharacterBody2D" node_paths=PackedStringArray("animation_controller")]
+position = Vector2(56, 447)
+disable_mode = 2
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_cu8rc")
+animation_controller = NodePath("Fumiko_Animation")
+jump_velocity = -300.0
+max_jump_velocity = -400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wa4va")
+debug_color = Color(0.521569, 0.00392157, 0.992157, 1)
+
+[node name="Fumiko_Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0e30h")
+animation = &"walk"
+speed_scale = 0.75
+script = ExtResource("5_vl6iu")
