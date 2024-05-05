@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cki0bap0kxtm2" path="res://level_1.tscn" id="1_p3i4r"]
 [ext_resource type="PackedScene" uid="uid://dmk4jkq8v7ead" path="res://Prefabs/camera_2d.tscn" id="2_745in"]
 [ext_resource type="PackedScene" uid="uid://d0t51xdq2ubtv" path="res://Prefabs/fumiko.tscn" id="3_pas7j"]
-[ext_resource type="Texture2D" uid="uid://st6ie5l38wob" path="res://Sprites/Backgrounds/wizardtower.png" id="8_pfxe6"]
+[ext_resource type="Texture2D" uid="uid://dfjeka1pitiqq" path="res://Sprites/Backgrounds/grassland_with_wizard_tower.png" id="4_svnyk"]
 [ext_resource type="PackedScene" uid="uid://g0i3y52pul6e" path="res://exit_door_controller.tscn" id="10_kjuym"]
 
 [node name="Level_x1" type="Node2D"]
@@ -15,14 +15,22 @@
 main_character = NodePath("../Fumiko")
 
 [node name="Fumiko" parent="." instance=ExtResource("3_pas7j")]
+speed = 100.0
+second_jump_velocity = -200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Wizardtower" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(386, 589)
-scale = Vector2(0.905714, 0.905714)
-texture = ExtResource("8_pfxe6")
+position = Vector2(238.637, 441.637)
+scale = Vector2(0.617896, 0.617896)
+texture = ExtResource("4_svnyk")
+
+[node name="Wizardtower2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(871, 442)
+scale = Vector2(-0.618, 0.618)
+texture = ExtResource("4_svnyk")
 
 [node name="Level_1_extra" type="TileMap" parent="."]
 z_index = -1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bct6fo87n4ql3"
-path="res://.godot/imported/coldmountain.png-a3d6858eb1108ec79f1233c88a32f204.ctex"
+uid="uid://dukdkjf7vwvqo"
+path="res://.godot/imported/desert_background.png-586a93bf86a285eaa7d3ae851331d24e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/coldmountain.png"
-dest_files=["res://.godot/imported/coldmountain.png-a3d6858eb1108ec79f1233c88a32f204.ctex"]
+source_file="res://Sprites/Backgrounds/desert_background.png"
+dest_files=["res://.godot/imported/desert_background.png-586a93bf86a285eaa7d3ae851331d24e.ctex"]
 
 [params]
 

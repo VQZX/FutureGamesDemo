@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3l7wbo8w3lwi"
-path="res://.godot/imported/planet.png-6bf3eac0984ea95b1810f3edd042d27a.ctex"
+uid="uid://dfjeka1pitiqq"
+path="res://.godot/imported/grassland_with_wizard_tower.png-149cfe5c7eca2438db79fa4992c0c3a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/planet.png"
-dest_files=["res://.godot/imported/planet.png-6bf3eac0984ea95b1810f3edd042d27a.ctex"]
+source_file="res://Sprites/Backgrounds/grassland_with_wizard_tower.png"
+dest_files=["res://.godot/imported/grassland_with_wizard_tower.png-149cfe5c7eca2438db79fa4992c0c3a0.ctex"]
 
 [params]
 

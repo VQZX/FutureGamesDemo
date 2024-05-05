@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi66w543erjk0"]
 
-[ext_resource type="Texture2D" uid="uid://ds6eljtse0xa2" path="res://Sprites/Backgrounds/cloudsinthedesert.png" id="1_12vin"]
+[ext_resource type="Texture2D" uid="uid://dukdkjf7vwvqo" path="res://Sprites/Backgrounds/desert_background.png" id="1_g3oyr"]
 [ext_resource type="TileSet" uid="uid://cogc6onia3ape" path="res://TileMaps/terrain.tres" id="2_14aaj"]
 [ext_resource type="PackedScene" uid="uid://d0t51xdq2ubtv" path="res://Prefabs/fumiko.tscn" id="3_alrqr"]
 [ext_resource type="PackedScene" uid="uid://dmk4jkq8v7ead" path="res://Prefabs/camera_2d.tscn" id="3_wgkeq"]
@@ -10,7 +10,7 @@ position = Vector2(30, 134)
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(478, 422)
-texture = ExtResource("1_12vin")
+texture = ExtResource("1_g3oyr")
 
 [node name="level_2" type="TileMap" parent="."]
 position = Vector2(69, 415)

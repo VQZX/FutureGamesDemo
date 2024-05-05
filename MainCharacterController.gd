@@ -2,6 +2,7 @@ class_name MainCharacterController
 extends CharacterBody2D
 ###############################################################################
 @export var max_jumps = 2
+@export var speed = 300.0
 @export var animation_controller : MainCharacterSpriteAnimator
 @export var jump_velocity = -400.0
 @export var second_jump_velocity = -100.0
@@ -11,8 +12,7 @@ const MOVE_LEFT_INPUT = "move_left"
 const MOVE_RIGHT_INPUT = "move_right"
 const JUMP_INPUT = "jump"
 const INTERACT_INPUT = "interact"
-
-const SPEED = 300.0
+###############################################################################
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -45,7 +45,7 @@ func _ready():
 	
 # Input controls
 func _input(event):
-	var horizontal_change = SPEED * get_process_delta_time()
+	var horizontal_change = speed * get_process_delta_time()
 	if event.is_action(MOVE_LEFT_INPUT):
 		add_input_state(State.MOVE_LEFT)
 		remove_input_state(State.MOVE_RIGHT)
@@ -100,7 +100,7 @@ func handle_falling():
 		current_jumps = 0
 
 func handle_move_left():
-	var horizontal_change = SPEED * get_process_delta_time()
+	var horizontal_change = speed * get_process_delta_time()
 	var total_change = Vector2.LEFT * horizontal_change
 	var output = move_and_collide(total_change)
 	sprite_direction = -1
@@ -108,7 +108,7 @@ func handle_move_left():
 	pass
 	
 func handle_move_right():
-	var horizontal_change = SPEED * get_process_delta_time()
+	var horizontal_change = speed * get_process_delta_time()
 	var total_change = Vector2.RIGHT * horizontal_change
 	var output = move_and_collide(total_change)
 	sprite_direction = 1
