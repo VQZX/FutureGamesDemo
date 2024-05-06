@@ -6,10 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p62l"]
 size = Vector2(44, 87)
 
-[node name="ExitDoorController" type="Area2D"]
+[node name="ExitDoorController" type="Area2D" node_paths=PackedStringArray("animation")]
 position = Vector2(57, 577)
 collision_mask = 2
 script = ExtResource("1_si21q")
+delay_scene_change = 2
+animation = NodePath("ExitDoor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4.5)
@@ -17,5 +19,6 @@ shape = SubResource("RectangleShape2D_2p62l")
 
 [node name="ExitDoor" parent="." instance=ExtResource("2_uu053")]
 position = Vector2(-2, -45)
+animation = &"opening"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

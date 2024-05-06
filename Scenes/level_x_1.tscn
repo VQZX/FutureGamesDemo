@@ -15,22 +15,10 @@
 main_character = NodePath("../Fumiko")
 
 [node name="Fumiko" parent="." instance=ExtResource("3_pas7j")]
-speed = 100.0
+speed = 200.0
 second_jump_velocity = -200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Wizardtower" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(238.637, 441.637)
-scale = Vector2(0.617896, 0.617896)
-texture = ExtResource("4_svnyk")
-
-[node name="Wizardtower2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(871, 442)
-scale = Vector2(-0.618, 0.618)
-texture = ExtResource("4_svnyk")
 
 [node name="Level_1_extra" type="TileMap" parent="."]
 z_index = -1
@@ -40,3 +28,20 @@ layer_0/tile_data = PackedInt32Array(2424840, 524288, 0, 2490376, 524288, 1, 242
 
 [node name="ExitDoorController" parent="." instance=ExtResource("10_kjuym")]
 position = Vector2(737, 464)
+level_to_change_to = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Wizardtower" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(238.637, 441.637)
+scale = Vector2(0.617896, 0.617896)
+texture = ExtResource("4_svnyk")
+
+[node name="Wizardtower2" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(871, 442)
+scale = Vector2(-0.618, 0.618)
+texture = ExtResource("4_svnyk")

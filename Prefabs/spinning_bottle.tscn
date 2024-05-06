@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://cjq1emdf5wj0i"]
+
+[ext_resource type="Texture2D" uid="uid://d2s8sxkb5ojo7" path="res://Sprites/AnimatedItems/spinning_bottle_cap.png" id="1_h2u5r"]
+[ext_resource type="Script" path="res://Scripts/Level_2/SpinngBottle.gd" id="1_rk8n1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7phe"]
+size = Vector2(380, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdsen"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(0, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcq38"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(341, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if1h2"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(682, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn7ex"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(0, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhr8l"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(341, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5ike"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(682, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmpp"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(0, 682, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1eke"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(341, 682, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvyca"]
+atlas = ExtResource("1_h2u5r")
+region = Rect2(682, 682, 341, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7y00q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdsen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcq38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if1h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn7ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhr8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5ike")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1eke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvyca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="SpinningBottle" type="Area2D"]
+position = Vector2(56, 434)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_rk8n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_u7phe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7y00q")
+frame_progress = 0.363689
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
