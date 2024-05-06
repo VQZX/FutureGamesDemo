@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/level_x_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AppManager="*res://Scripts/Management/AppController.gd"
+
 [dotnet]
 
 project/assembly_name="Platformer Demonstration"
