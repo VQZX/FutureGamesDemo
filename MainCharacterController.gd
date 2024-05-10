@@ -64,7 +64,7 @@ func _input(event):
 			direction.x = 0
 			
 	if event.is_action_pressed(JUMP_INPUT):
-		print("Jump Input -- "+str(current_jumps))
+		#print("Jump Input -- "+str(current_jumps))
 		if current_jumps < max_jumps:
 			add_input_state(State.JUMP)
 			direction.y = -1
@@ -105,7 +105,7 @@ func handle_falling():
 	if is_on_floor(): 
 		set_idle_state()
 		current_jumps = 0
-		print(" falling Change Jump to zero")
+		#print(" falling Change Jump to zero")
 
 func handle_move_left():
 	var horizontal_change = speed * get_process_delta_time()
@@ -158,7 +158,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	elif is_on_floor():
 		current_jumps = 0
-		print("physics Change Jump to zero")
+		#print("physics Change Jump to zero")
 
 	# Handle Falling
 	if velocity.y < 0:
