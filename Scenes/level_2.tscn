@@ -23,9 +23,41 @@ layer_0/tile_data = PackedInt32Array(-786438, 1441792, 4, -720902, 1441792, 5, -
 position = Vector2(108, 334)
 main_character = NodePath("../Fumiko")
 
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -151.0
+offset_top = -221.0
+offset_right = -111.0
+offset_bottom = -181.0
+
+[node name="BottleLabelBackground" type="ColorRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1, 0.68)
+
+[node name="BottleLabel" type="Label" parent="Camera2D/Control/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = SubResource("Theme_a2uwq")
+text = "Bottles Found: "
+
+[node name="BottleAmount" type="Label" parent="Camera2D/Control/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = SubResource("Theme_a2uwq")
+text = "888"
+
 [node name="Fumiko" parent="." instance=ExtResource("3_alrqr")]
 position = Vector2(56, 238)
-second_jump_velocity = -200.0
+second_jump_velocity = -300.0
+max_jump_velocity = -1000
 
 [node name="ExitDoorController" parent="." instance=ExtResource("5_qn11y")]
 position = Vector2(918, 427)
@@ -74,31 +106,3 @@ follow_viewport_enabled = true
 z_index = -1
 position = Vector2(508, 556)
 texture = ExtResource("1_g3oyr")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BottleLabelBackground" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 40.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BottleLabel" type="Label" parent="Control/HBoxContainer"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-theme = SubResource("Theme_a2uwq")
-text = "Bottles Found: "
-
-[node name="BottleAmount" type="Label" parent="Control/HBoxContainer"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-theme = SubResource("Theme_a2uwq")
-text = "888"

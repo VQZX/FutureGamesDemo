@@ -15,7 +15,7 @@
 main_character = NodePath("../Fumiko")
 
 [node name="Fumiko" parent="." instance=ExtResource("3_pas7j")]
-speed = 200.0
+speed = 500.0
 second_jump_velocity = -200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

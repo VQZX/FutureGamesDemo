@@ -22,5 +22,8 @@ func _on_body_entered(body):
 	pass # Replace with function body.
 
 func handle_fumiko_collision():
-	print("Collided with Fumiko")
+	get_node(".").queue_free()
+	# Play audio
+	# Instantiate particle effects
+	# Add information callback for collected bottle
 	pass

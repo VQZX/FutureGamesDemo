@@ -46,11 +46,11 @@ func _ready():
 # Input controls
 func _input(event):
 	var horizontal_change = speed * get_process_delta_time()
-	if event.is_action(MOVE_LEFT_INPUT):
+	if event.is_action_pressed(MOVE_LEFT_INPUT):
 		add_input_state(State.MOVE_LEFT)
 		remove_input_state(State.MOVE_RIGHT)
 		direction.x = -1
-	elif event.is_action(MOVE_RIGHT_INPUT):
+	elif event.is_action_pressed(MOVE_RIGHT_INPUT):
 		add_input_state(State.MOVE_RIGHT)
 		remove_input_state(State.MOVE_LEFT)
 		direction.x = 1
@@ -64,19 +64,26 @@ func _input(event):
 			direction.x = 0
 			
 	if event.is_action_pressed(JUMP_INPUT):
+		print("Jump Input -- "+str(current_jumps))
 		if current_jumps < max_jumps:
 			add_input_state(State.JUMP)
 			direction.y = -1
+			if current_jumps > 0:
+				handle_jump()
 	
 func handle_jump():
 	if current_jumps < max_jumps:
 		match current_jumps:
 			0: 
+				#print("current jumps 0")
 				velocity.y = velocity.y + jump_velocity
 			1: 
+				#print("current jumps 1")
+				velocity.y = max(0, velocity.y)
 				velocity.y = velocity.y + second_jump_velocity
 		animation_controller.play_animation(animation_controller.JUMP, sprite_direction)
 		current_jumps = current_jumps + 1
+		#print("current jumps change "+str(current_jumps))
 		limit_jump_velocity()
 
 func handle_idle():
@@ -98,13 +105,15 @@ func handle_falling():
 	if is_on_floor(): 
 		set_idle_state()
 		current_jumps = 0
+		print(" falling Change Jump to zero")
 
 func handle_move_left():
 	var horizontal_change = speed * get_process_delta_time()
 	var total_change = Vector2.LEFT * horizontal_change
 	var output = move_and_collide(total_change)
 	sprite_direction = -1
-	animation_controller.play_animation(animation_controller.RUN, int(sprite_direction))
+	animation_controller.play_animation(animation_controller.RUN, 
+	int(sprite_direction))
 	pass
 	
 func handle_move_right():
@@ -112,7 +121,8 @@ func handle_move_right():
 	var total_change = Vector2.RIGHT * horizontal_change
 	var output = move_and_collide(total_change)
 	sprite_direction = 1
-	animation_controller.play_animation(animation_controller.RUN, int(sprite_direction))
+	animation_controller.play_animation(animation_controller.RUN, 
+	int(sprite_direction))
 	pass
 	
 func _process(delta):
@@ -128,6 +138,9 @@ func _process(delta):
 		# Face left
 		animation_controller.play_animation(animation_controller.RUN, -1)
 	
+
+func _physics_process(delta):
+	
 	match current_state:
 		State.IDLE:
 			handle_idle()
@@ -139,20 +152,19 @@ func _process(delta):
 			handle_jump()
 		State.FALLING:
 			handle_falling()
-
-func _physics_process(delta):
-	# Add the gravity.
 	
+	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	elif is_on_floor():
 		current_jumps = 0
+		print("physics Change Jump to zero")
 
 	# Handle Falling
 	if velocity.y < 0:
 		current_state = State.FALLING
 		direction.y = 1
-
+		
 	move_and_slide()
 	
 func add_input_state(state: State):
