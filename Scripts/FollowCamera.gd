@@ -16,7 +16,9 @@ var current_move_weight : float = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	target_position = main_character.GetPosition() + target_offset
+	# Move to target position
+	# Target position is the main character's position plus the offset
+	## Insert code
 	match state:
 		CameraState.STATIC:
 			static_process()

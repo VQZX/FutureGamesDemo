@@ -45,29 +45,48 @@ func _ready():
 	
 # Input controls
 func _input(event):
+	# Calculate the amount changed along the horizontal
 	var horizontal_change = speed * get_process_delta_time()
+	
+	# Is it a left input, or a right input
 	if event.is_action_pressed(MOVE_LEFT_INPUT):
-		add_input_state(State.MOVE_LEFT)
-		remove_input_state(State.MOVE_RIGHT)
-		direction.x = -1
+		# Use Add input state to track left input
+		## Insert code
+		# Remove right Input
+		## Insert code
+		# Set  Horizontal direction to negative 1
+		## Insert code
+		pass
 	elif event.is_action_pressed(MOVE_RIGHT_INPUT):
-		add_input_state(State.MOVE_RIGHT)
-		remove_input_state(State.MOVE_LEFT)
-		direction.x = 1
+		# Use add input state to track left input
+		## Insert code
+		# Remove left input state
+		## Insert code
+		# Set Horizontal direction to 1
+		## Insert code
+		pass
 		
 	if current_state != State.JUMP or current_state != State.FALLING:
 		if event.is_action_released(MOVE_LEFT_INPUT):
-			set_idle_state()
-			direction.x = 0
+			# Set Idle state
+			## Insert code
+			# Set horizontal direction to 0
+			## Insert code
+			pass
 		elif event.is_action_released(MOVE_RIGHT_INPUT):
-			set_idle_state()
-			direction.x = 0
+			# Set Idle state
+			## Insert code
+			# Set horizontal direction to 0
+			## Insert code
+			pass
 			
 	if event.is_action_pressed(JUMP_INPUT):
-		#print("Jump Input -- "+str(current_jumps))
 		if current_jumps < max_jumps:
-			add_input_state(State.JUMP)
-			direction.y = -1
+			# Use add input state to track jumping
+			## Insert code
+			# Set vertical directiont to negative 1
+			## Insert code
+			pass
 			if current_jumps > 0:
 				handle_jump()
 	
@@ -75,72 +94,104 @@ func handle_jump():
 	if current_jumps < max_jumps:
 		match current_jumps:
 			0: 
-				#print("current jumps 0")
-				velocity.y = velocity.y + jump_velocity
+				# Add jump velocity to vertical vertical velocity
+				## Insert code
+				pass
 			1: 
 				#print("current jumps 1")
-				velocity.y = max(0, velocity.y)
-				velocity.y = velocity.y + second_jump_velocity
+				# On Double Jump, ensure the velocity to or or more
+				## Insert code
+				# Add the jump velocity
+				## Insert code
+				pass
+		## Play the Jump Animation, with the correct sprite direction
 		animation_controller.play_animation(animation_controller.JUMP, sprite_direction)
-		current_jumps = current_jumps + 1
-		#print("current jumps change "+str(current_jumps))
+		## Insert code
+		# Add 1 to jump to keep track of the amount of jumps made
+		## Insert code
+		# Ensure we limit the jump velocity
 		limit_jump_velocity()
 
 func handle_idle():
-	if velocity.length() > 0:
-		return
-	animation_controller.play_animation(animation_controller.IDLE, sprite_direction)
-	if State.MOVE_LEFT in input_tracker:
-		handle_move_left()
-	elif State.MOVE_RIGHT in input_tracker:
-		handle_move_right()
+	# If the velocity is moving in any direction
+	# Return
+	## Insert code
+	
+	## Play the Idle Animation, with the correct sprite direction
+	## Insert code
+
+	# Otherwse
+	# Check if we are moving left, or moving right
+	# And then move left or right respectively
+	## Insert code
 	pass
 	
 func handle_falling():
-	animation_controller.play_animation(animation_controller.FALL_DOWN, sprite_direction)
+	# Play FALL_DOWN animation, with correct sprite direction
+	## Insert code
+
+	# We prioritise moving left
+	# We check if we are moving left or right
+	# And then handle that process
 	if State.MOVE_LEFT in input_tracker:
 		handle_move_left()
 	elif State.MOVE_RIGHT in input_tracker:
 		handle_move_right()
+		
+		
 	if is_on_floor(): 
 		set_idle_state()
 		current_jumps = 0
 		#print(" falling Change Jump to zero")
 
 func handle_move_left():
-	var horizontal_change = speed * get_process_delta_time()
-	var total_change = Vector2.LEFT * horizontal_change
-	var output = move_and_collide(total_change)
-	sprite_direction = -1
-	animation_controller.play_animation(animation_controller.RUN, 
-	int(sprite_direction))
+	# Calculate the horizontal movement amount based on speed and delta time
+	## Insert code
+	# Calculate the change left for that process
+	## Insert code
+	# Use Godot move_and_collide() to see if we have collided with anything
+	## Insert code
+	# Change sprite direction to be negative (left)
+	## Insert code
+	# Play Animaton to run, with correct sprite direction
+	## Insert code
 	pass
 	
 func handle_move_right():
-	var horizontal_change = speed * get_process_delta_time()
-	var total_change = Vector2.RIGHT * horizontal_change
-	var output = move_and_collide(total_change)
-	sprite_direction = 1
-	animation_controller.play_animation(animation_controller.RUN, 
-	int(sprite_direction))
+	# Calculate the horizontal movement amount based on speed and delta time
+	## Insert code
+	# Calculate the change right for that process
+	## Insert code
+	# Use Godot move_and_collide() to see if we have collided with anything
+	## Insert code
+	# Change sprite direction to be positive (right)
+	## Insert code
+	# Play Animaton to run, with correct sprite direction
+	## Insert code
 	pass
 	
 func _process(delta):
-	position_delta = position - previous_position
-	simple_velocity = position_delta / delta
-	previous_position = position
+	# Calculate how much the position has changed
+	## Insert code
+	# Keep track of a simplified approximation of the velocity
+	# Divide the change in position, by the time that has passed
+	## Insert code
+	# Store the current position in the previous position value
+	## Insert code
 	
 	# Force sprite direction
-	if State.MOVE_RIGHT in input_tracker and velocity.x > 0:
-		# Face right
-		animation_controller.play_animation(animation_controller.RUN, 1)
-	elif State.MOVE_LEFT in input_tracker and velocity.x < 0:
-		# Face left
-		animation_controller.play_animation(animation_controller.RUN, -1)
+	# Prioritise facing right
+	# if input_tracker contains State.MOVE_RIGHT and the horzintal velicity is positive
+	# then set the animation controlle to play run, in the positive direction
+	## Insert code
+	# Otherwise
+	# if the character should be facing left, then play animation controller
+	# in the left direction
+	## Insert code
+	pass
 	
 
 func _physics_process(delta):
-	
 	match current_state:
 		State.IDLE:
 			handle_idle()
@@ -167,6 +218,10 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
+	
+#########################################################################
+#### HELPER FUNCTIONS ###################################################
+
 func add_input_state(state: State):
 	remove_input_state(state) 
 	input_tracker.append(state)

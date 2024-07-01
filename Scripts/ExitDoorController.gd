@@ -17,15 +17,17 @@ func _ready():
 	pass # Replace with function body.
 	
 func _process(delta):
-	if ( not timer_activated):
-		return
-	current_time = current_time + delta
-	if current_time >= delay_scene_change:
-		AppManager.change_to_level(level_to_change_to)
+	##############################
+	# If timer is not activated, we dont do anything -- return
+	# Otherwise
+	# Add delta to current time
+	# if current time is more than the delay (delay_scene_change)
+	# -- Change level
+	pass
 
 func _on_body_entered(body):
-	print("Entered "+str(body))
-	if body != fumiko:
-		return
-	timer_activated = true;
-	animation.play("opening")
+	########################
+	# if the entered body is not Fumiko, return
+	# Otherwise, activate timer (timer_activated)
+	# Play opening animation
+	pass

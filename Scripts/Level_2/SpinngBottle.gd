@@ -5,21 +5,18 @@ var fumiko : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	fumiko = AppManager.find_node_by_name("Fumiko")
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	# Find the Fumiko character from AppManager
+	## Insert code
+	# fumiko = __
+	pass 
 
 
 func _on_body_entered(body):
-	print("SpinningBottle "+str(body))
-	if body != fumiko:
-		return
+	# If the entered body is not the fumiko node, return
+	## Insert code
+
 	handle_fumiko_collision()
-	pass # Replace with function body.
+	pass 
 
 func handle_fumiko_collision():
 	get_node(".").queue_free()
