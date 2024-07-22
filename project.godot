@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Platformer Demonstration"
+config/name="Platformer Demonstration - Change"
 run/main_scene="res://Scenes/level_x_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
