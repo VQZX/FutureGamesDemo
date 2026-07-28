@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://gcy4qw8pqj0p"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://gcy4qw8pqj0p"]
 
 [ext_resource type="Texture2D" uid="uid://kmdhovsrwv5p" path="res://Sprites/Animateds/Doors/Door4.png" id="1_oydbd"]
 
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wtpww")
 }],
-"loop": true,
+"loop": 1,
 "name": &"closed",
 "speed": 5.0
 }, {
@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pwmvp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"open",
 "speed": 5.0
 }, {
@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lu1em")
 }],
-"loop": false,
+"loop": 0,
 "name": &"opening",
 "speed": 5.0
 }]
